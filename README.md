@@ -1,46 +1,41 @@
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+import java.util.Scanner;
 
-public class MathOperationsTest {
-
-    @Test
-    public void testAddition() {
-        int result = add(5, 3);
-        assertEquals(8, result);
-    }
-
-    @Test
-    public void testSubtraction() {
-        int result = subtract(10, 3);
-        assertEquals(7, result);
-    }
-
-    @Test
-    public void testMultiplication() {
-        int result = multiply(4, 5);
-        assertEquals(20, result);
-    }
-
-    @Test
-    public void testDivision() {
-        int result = divide(20, 4);
-        assertEquals(5, result);
-    }
-
-    public int add(int a, int b) {
-        return a + b;
-    }
-
-    public int subtract(int a, int b) {
-        return a - b;
-    }
-
-    public int multiply(int a, int b) {
-        return a * b;
-    }
-
-    public int divide(int a, int b) {
-       
-        return a / b;
+public class SimpleCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter first number: ");
+        double num1 = scanner.nextDouble();
+        
+        System.out.print("Enter second number: ");
+        double num2 = scanner.nextDouble();
+        
+        System.out.print("Enter operation (+, -, *, /): ");
+        char operator = scanner.next().charAt(0);
+        
+        double result;
+        
+        if (operator == '+') {
+            result = num1 + num2;
+            System.out.println("Result: " + result);
+        } else if (operator == '-') {
+            result = num1 - num2;
+            System.out.println("Result: " + result);
+        } else if (operator == '*') {
+            result = num1 * num2;
+            System.out.println("Result: " + result);
+        } else if (operator == '/') {
+            if (num2 != 0) {
+                result = num1 / num2;
+                System.out.println("Result: " + result);
+            } else {
+                System.out.println("Error: Division by zero");
+            }
+        } else {
+            System.out.println("Error: Invalid operator");
+        }
+        
+        scanner.close();
     }
 }
+``
